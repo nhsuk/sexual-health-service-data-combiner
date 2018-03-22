@@ -1,0 +1,32 @@
+version: '2.1'
+
+services:
+
+  test:
+    extends:
+      file: docker-compose.yml
+      service: base-app
+    command: yarn test-watch
+    volumes:
+      - sexual-health-service-data-combiner-tests-node_modules:/code/node_modules
+    environment:
+      NODE_ENV: test
+
+  test-ci:
+    extends:
+      file: docker-compose.yml
+      service: base-app
+    command: yarn test-ci
+    user: root
+    volumes:
+      - sexual-health-service-data-combiner-tests-node_modules:/code/node_modules
+    environment:
+      COVERALLS_REPO_TOKEN: ${COVERALLS_REPO_TOKEN}
+      NODE_ENV: test
+      TRAVIS: ${TRAVIS}
+      TRAVIS_BRANCH: ${TRAVIS_BRANCH}
+      TRAVIS_COMMIT: ${TRAVIS_COMMIT}
+      TRAVIS_JOB_ID: ${TRAVIS_JOB_ID}
+
+volumes:
+  sexual-health-service-data-combiner-tests-node_modules:

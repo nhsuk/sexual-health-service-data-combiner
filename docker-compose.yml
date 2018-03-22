@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+
+  base-app:
+    build:
+      context: .
+    volumes:
+      - .:/code
+    environment:
+      AZURE_STORAGE_CONNECTION_STRING: '${AZURE_STORAGE_CONNECTION_STRING}'
+      CHANGE_THRESHOLD: 0.96
+      CONTAINER_NAME: ${CONTAINER_NAME}
+      DISABLE_SCHEDULER: ${DISABLE_SCHEDULER}
+      NODE_ENV: ${NODE_ENV}
+      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
+
+  sexual-health-service-data-combiner:
+    extends:
+      service: base-app
+    volumes:
+      - sexual-health-service-data-combiner-node_modules:/code/node_modules
+
+volumes:
+  sexual-health-service-data-combiner-node_modules:
