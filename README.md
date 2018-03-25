@@ -8,6 +8,6 @@
 - [ ] Add env vars (`CONTAINER_NAME` changes to blobContainerName)
 - [ ] Add ADR note and some for recording decisions
 - [ ] Dockerise the app, add rancher config
-- [ ] Add scripts
+- [x] Add scripts
 - [ ] Add tests
 - [ ] Replace apiRequest with request
