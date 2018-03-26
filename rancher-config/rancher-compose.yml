@@ -1,0 +1,5 @@
+version: '2'
+services:
+  sexual-health-service-data-combiner:
+    scale: 1
+    start_on_create: true

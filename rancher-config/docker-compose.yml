@@ -1,0 +1,25 @@
+version: '2'
+services:
+
+  sexual-health-service-data-combiner:
+    image: nhsuk/sexual-health-service-data-combiner:${DOCKER_IMAGE_TAG}
+    environment:
+      AZURE_BLOB_CONTAINER_NAME: ${AZURE_BLOB_CONTAINER_NAME}
+      AZURE_STORAGE_CONNECTION_STRING: '${AZURE_STORAGE_CONNECTION_STRING}'
+      AZURE_TIMEOUT_MINUTES: ${AZURE_TIMEOUT_MINUTES}
+      DISABLE_SCHEDULER: ${DISABLE_SCHEDULER}
+      NODE_ENV: production
+      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
+    labels:
+      io.rancher.container.pull_image: always
+    logging:
+      driver: splunk
+      options:
+        splunk-url: ${SPLUNK_HEC_URL}
+        splunk-token: ${SPLUNK_HEC_TOKEN}
+        splunk-insecureskipverify: "true"
+        splunk-sourcetype: docker
+        splunk-source: sexual-health-service-data-combiner
+        splunk-verify-connection: "false"
+        tag: "{{`{{.ImageName}} {{.Name}} {{.FullID}}`}}"
+        splunk-format: json
