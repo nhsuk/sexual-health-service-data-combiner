@@ -8,8 +8,6 @@ module.exports = {
     name: 'sexual-health-service-data-combiner',
   },
   blobContainerName: process.env.CONTAINER_NAME || 'etl-output',
-  // percentage the records can drop by before erroring
-  changeThreshold: Number(process.env.CHANGE_THRESHOLD) || 0.99,
   chlamydiaScreeningUnder25s: {
     filename: 'csu25-data.json',
     url: 'https://primarycare.blob.core.windows.net/etl-output/csu25-data.json',
