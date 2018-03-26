@@ -1,4 +1,4 @@
-function getMergedDataFile() {
+function getMergedDataFilename() {
   const prefix = process.env.NODE_ENV === 'production' ? '' : 'dev-';
   return `${prefix}merged-data.json`;
 }
@@ -11,7 +11,7 @@ module.exports = {
   // percentage the records can drop by before erroring
   changeThreshold: Number(process.env.CHANGE_THRESHOLD) || 0.99,
   chlamydiaScreeningUnder25s: {
-    file: 'csu25-data.json',
+    filename: 'csu25-data.json',
     url: 'https://primarycare.blob.core.windows.net/etl-output/csu25-data.json',
   },
   dataDir: {
@@ -19,9 +19,9 @@ module.exports = {
     latest: './data/latest',
   },
   env: process.env.NODE_ENV || 'development',
-  mergedDataFile: getMergedDataFile,
+  mergedDataFilename: getMergedDataFilename,
   sexualHealthInformationServices: {
-    file: 'shis-data.json',
+    filename: 'shis-data.json',
     url: 'https://primarycare.blob.core.windows.net/etl-output/shis-data.json',
   },
 };
