@@ -10,4 +10,4 @@
 - [ ] Dockerise the app, add rancher config
 - [x] Add scripts
 - [ ] Add tests
-- [ ] Replace apiRequest with request
+- [x] Replace apiRequest with request
