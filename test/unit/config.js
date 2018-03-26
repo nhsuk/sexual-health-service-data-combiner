@@ -18,7 +18,7 @@ describe('config', () => {
   it('should return just the filename when env is \'production\'', () => {
     process.env.NODE_ENV = 'production';
 
-    const result = config.mergedDataFilename();
+    const result = config.data.mergedDataFilename();
 
     expect(result).to.equal('merged-data.json');
   });
@@ -26,7 +26,7 @@ describe('config', () => {
   it('should return the filename prepended with \'dev-\' when env is not \'production\'', () => {
     process.env.NODE_ENV = '';
 
-    const result = config.mergedDataFilename();
+    const result = config.data.mergedDataFilename();
 
     expect(result).to.equal('dev-merged-data.json');
   });
