@@ -2,6 +2,8 @@
 
 [![GitHub Release](https://img.shields.io/github/release/nhsuk/sexual-health-service-data-combiner.svg)](https://github.com/nhsuk/sexual-health-service-data-combiner/releases/latest/)
 [![Greenkeeper badge](https://badges.greenkeeper.io/nhsuk/sexual-health-service-data-combiner.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/nhsuk/sexual-health-service-data-combiner.svg?branch=master)](https://travis-ci.org/nhsuk/sexual-health-service-data-combiner)
+[![Coverage Status](https://coveralls.io/repos/github/nhsuk/sexual-health-service-data-combiner/badge.svg?branch=master)](https://coveralls.io/github/nhsuk/sexual-health-service-data-combiner?branch=master)
 
 > Generates a single JSON file from multiple sources. The resulting file will
 > be used by an instance of
