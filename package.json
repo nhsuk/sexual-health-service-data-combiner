@@ -52,6 +52,7 @@
     "node-schedule": "^1.2.4",
     "pretty-hrtime": "^1.0.3",
     "request-promise-native": "^1.0.5",
-    "require-environment-variables": "^1.1.2"
+    "require-environment-variables": "^1.1.2",
+    "verror": "^1.10.0"
   }
 }

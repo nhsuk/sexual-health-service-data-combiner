@@ -1,4 +1,5 @@
 const schedule = require('node-schedule');
+const VError = require('verror');
 
 const log = require('./lib/utils/logger');
 const mergeAndUpload = require('./lib/mergeAndUpload');
@@ -16,6 +17,6 @@ const scheduleConfig = require('./config/scheduleConfig');
       await mergeAndUpload();
     });
   } catch (ex) {
-    log.error({ error: ex }, 'Error performing merge and upload');
+    log.error({ error: new VError(ex, 'Error performing merge and upload') });
   }
 }());
