@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+
+  base-app:
+    build:
+      context: .
+    volumes:
+      - .:/code
+    environment:
+      AZURE_BLOB_CONTAINER_NAME: ${AZURE_BLOB_CONTAINER_NAME}
+      AZURE_STORAGE_CONNECTION_STRING: '${AZURE_STORAGE_CONNECTION_STRING}'
+      AZURE_TIMEOUT_MINUTES: ${AZURE_TIMEOUT_MINUTES}
+      DISABLE_SCHEDULER: ${DISABLE_SCHEDULER}
+      NODE_ENV: ${NODE_ENV}
+      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
+
+  sexual-health-service-data-combiner:
+    extends:
+      service: base-app
+    volumes:
+      - sexual-health-service-data-combiner-node_modules:/code/node_modules
+
+volumes:
+  sexual-health-service-data-combiner-node_modules:

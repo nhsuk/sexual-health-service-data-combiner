@@ -1,0 +1,58 @@
+{
+  "name": "sexual-health-service-data-combiner",
+  "version": "0.1.0",
+  "description": "Retrieves multiple JSON files, combines them into a single file and uploads it into Azure Blob storage",
+  "main": "app.js",
+  "scripts": {
+    "coverage-check": "istanbul check-coverage --config .istanbul.yml",
+    "coverage-check-unit": "istanbul check-coverage --config .istanbul.unit.yml",
+    "coverage-generate-unit": "yarn istanbul cover -- _mocha -- --recursive test/unit",
+    "coverage-generate": "yarn istanbul cover -- _mocha -- --recursive",
+    "coverage-upload-coveralls": "cat ./coverage/lcov.info | coveralls",
+    "git-hook": "yarn lint && yarn coverage-generate-unit && yarn coverage-check-unit",
+    "istanbul": "NODE_ENV=test istanbul",
+    "lint": "eslint --ext .js,.json .",
+    "postrewrite": "yarn git-hook",
+    "precommit": "yarn git-hook",
+    "prepush": "yarn git-hook",
+    "start": "node app.js",
+    "start-watch": "nodemon app.js | ./node_modules/bunyan/bin/bunyan & nodemon -e scss -x yarn build-css -- compact",
+    "test": "NODE_ENV=test mocha --recursive test",
+    "test-ci": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls",
+    "test-integration": "NODE_ENV=test mocha --recursive test/integration",
+    "test-unit": "NODE_ENV=test mocha --recursive test/unit",
+    "test-watch": "yarn test --watch --reporter min"
+  },
+  "keywords": [
+    "azure",
+    "json",
+    "nhsuk"
+  ],
+  "author": "Steve Hunt",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-config-nhsuk": "^0.13.0",
+    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-watch": "^3.1.2",
+    "husky": "^0.14.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.0.0",
+    "nock": "^9.0.14"
+  },
+  "dependencies": {
+    "azure-storage": "^2.4.0",
+    "moment": "^2.18.1",
+    "nhsuk-bunyan-logger": "^1.4.0",
+    "node-schedule": "^1.2.4",
+    "pretty-hrtime": "^1.0.3",
+    "request-promise-native": "^1.0.5",
+    "require-environment-variables": "^1.1.2",
+    "verror": "^1.10.0"
+  }
+}
