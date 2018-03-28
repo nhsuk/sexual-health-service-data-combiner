@@ -15,13 +15,16 @@ describe('merge', () => {
     expect(result.length).to.equal(0);
   });
 
-  it('should return an array with all entries when supplied with 2', () => {
-    const inputOne = [];
-    const inputTwo = [];
+  it('should return an array with all entries when supplied with two non-empty arrays', () => {
+    const inputOne = [1];
+    const inputTwo = [2];
+    const expectedMergedArrayLength = inputOne.length + inputTwo.length;
 
     const result = merge(inputOne, inputTwo);
 
     expect(result).to.be.an('array');
-    expect(result.length).to.equal(0);
+    expect(result.length).to.equal(expectedMergedArrayLength);
+    expect(result[0]).to.equal(inputOne[0]);
+    expect(result[1]).to.equal(inputTwo[0]);
   });
 });

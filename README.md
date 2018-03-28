@@ -12,19 +12,19 @@
 
 The data sources are listed in [config.js](./config/config.js). Each data
 source has two properties, the `filename` and the `url` where a JSON file can
-be downloaded from. The file must be a JSON array of objects.  Each file will
+be downloaded from. The file must be a JSON array of objects. Each file will
 be concatenated (along with some additional processing to ensure integrity) to
 produce a merged data set (`merged-data.json`) which will be uploaded into the
 Azure Storage account specified in `AZURE_STORAGE_CONNECTION_STRING`. The files
 will be uploaded into a container as specified in `AZURE_BLOB_CONTAINER_NAME`
-or `etl-ouput` as the default.  If the storage account is `primarycare` and the
+or `etl-ouput` as the default. If the storage account is `primarycare` and the
 defaults were used the merged data set will be available to download from
 [https://primarycare.blob.core.windows.net/etl-output/merged-data.json](https://primarycare.blob.core.windows.net/etl-output/merged-data.json).
 
 ## Running the application and scheduling
 
 The application will run at startup and then on a daily basis, while the
-container continues to run. . The time of day defaults to 7:15am, and can be
+container continues to run. The time of day defaults to 7:15am, and can be
 changed via the `UPDATE_SCHEDULE` environment variable. Further details on the
 time format are available at
 [here](https://www.npmjs.com/package/node-schedule)
