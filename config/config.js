@@ -1,6 +1,6 @@
 function getMergedDataFilename() {
   const prefix = process.env.NODE_ENV === 'production' ? '' : 'dev-';
-  return `${prefix}merged-data.json`;
+  return `${prefix}sexual-health-service-data-merged.json`;
 }
 
 module.exports = {

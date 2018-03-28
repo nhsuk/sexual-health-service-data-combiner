@@ -20,7 +20,7 @@ describe('config', () => {
 
     const result = config.data.mergedDataFilename();
 
-    expect(result).to.equal('merged-data.json');
+    expect(result).to.equal('sexual-health-service-data-merged.json');
   });
 
   it('should return the filename prepended with \'dev-\' when env is not \'production\'', () => {
@@ -28,6 +28,6 @@ describe('config', () => {
 
     const result = config.data.mergedDataFilename();
 
-    expect(result).to.equal('dev-merged-data.json');
+    expect(result).to.equal('dev-sexual-health-service-data-merged.json');
   });
 });
