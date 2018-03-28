@@ -16,12 +16,13 @@ The data sources are listed in [config.js](./config/config.js). Each data
 source has two properties, the `filename` and the `url` where a JSON file can
 be downloaded from. The file must be a JSON array of objects. Each file will
 be concatenated (along with some additional processing to ensure integrity) to
-produce a merged data set (`merged-data.json`) which will be uploaded into the
-Azure Storage account specified in `AZURE_STORAGE_CONNECTION_STRING`. The files
-will be uploaded into a container as specified in `AZURE_BLOB_CONTAINER_NAME`
-or `etl-ouput` as the default. If the storage account is `primarycare` and the
-defaults were used the merged data set will be available to download from
-[https://primarycare.blob.core.windows.net/etl-output/merged-data.json](https://primarycare.blob.core.windows.net/etl-output/merged-data.json).
+produce a merged data set (`sexual-health-service-data-merged.json`) which will
+be uploaded into the Azure Storage account specified in
+`AZURE_STORAGE_CONNECTION_STRING`. The files will be uploaded into a container
+as specified in `AZURE_BLOB_CONTAINER_NAME` or `etl-ouput` as the default. If
+the storage account is `primarycare` and the defaults were used the merged data
+set will be available to download from
+[https://primarycare.blob.core.windows.net/etl-output/sexual-health-service-data-merged.json](https://primarycare.blob.core.windows.net/etl-output/sexual-health-service-data-merged.json).
 
 ## Running the application and scheduling
 
