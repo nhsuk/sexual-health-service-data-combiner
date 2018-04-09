@@ -4,34 +4,50 @@ const merge = require('../../lib/utils/merge');
 
 const expect = chai.expect;
 
+function expectArray(input, length) {
+  expect(input).to.be.an('array');
+  expect(input.length).to.equal(length);
+}
+
 describe('merge', () => {
   it('should return an empty array when run with an array of single empty array', () => {
     const input = [[]];
 
     const output = merge(input);
 
-    expect(output).to.be.an('array');
-    expect(output.length).to.equal(0);
+    expectArray(output, 0);
   });
 
-  it('should return an empty array when run with an array of three empty arrays', () => {
+  it('should return an empty array when run with an array of several empty arrays', () => {
     const input = [[], [], []];
 
     const output = merge(input);
 
-    expect(output).to.be.an('array');
-    expect(output.length).to.equal(0);
+    expectArray(output, 0);
   });
 
   it('should return an array with all entries when run with a single non-empty array', () => {
     const input = [[1, 2, 3, 4, 5]];
-    const expectedMergedArrayLength = input[0].length;
+    const expectedLength = input[0].length;
 
     const output = merge(input);
 
-    expect(output).to.be.an('array');
-    expect(output.length).to.equal(expectedMergedArrayLength);
+    expectArray(output, expectedLength);
     expect(output).to.equal(input[0]);
+  });
+
+  it('should return an array with all entries when run with a two non-empty arrays and an empty array', () => {
+    const arr1 = [1];
+    const arr2 = [2];
+    const arrEmpty = [];
+    const input = [arr1, arr2, arrEmpty];
+    const expectedLength = arr1.length + arr2.length + arrEmpty.length;
+
+    const output = merge(input);
+
+    expectArray(output, expectedLength);
+    expect(output[0]).to.equal(arr1[0]);
+    expect(output[1]).to.equal(arr2[0]);
   });
 
   it('should return an array with all entries when run with a three non-empty arrays', () => {
@@ -39,12 +55,11 @@ describe('merge', () => {
     const arr2 = [2];
     const arr3 = [3];
     const input = [arr1, arr2, arr3];
-    const expectedMergedArrayLength = arr1.length + arr2.length + arr3.length;
+    const expectedLength = arr1.length + arr2.length + arr3.length;
 
     const output = merge(input);
 
-    expect(output).to.be.an('array');
-    expect(output.length).to.equal(expectedMergedArrayLength);
+    expectArray(output, expectedLength);
     expect(output[0]).to.equal(arr1[0]);
     expect(output[1]).to.equal(arr2[0]);
     expect(output[2]).to.equal(arr3[0]);
