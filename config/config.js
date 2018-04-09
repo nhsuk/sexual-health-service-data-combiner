@@ -15,19 +15,19 @@ module.exports = {
     },
     mergedDataFilename: getMergedDataFilename,
     sources: {
-      chlamydiaScreeningAndTreatmentNhs: {
+      csatNhs: {
         filename: 'csat-nhs-data.json',
         url: 'https://primarycare.blob.core.windows.net/etl-output/csat-nhs-data.json',
       },
-      chlamydiaScreeningAndTreatmentNonNhs: {
+      csatNonNhs: {
         filename: 'csat-non-nhs-data.json',
         url: 'https://primarycare.blob.core.windows.net/etl-output/csat-non-nhs-data.json',
       },
-      chlamydiaScreeningUnder25s: {
+      csu25: {
         filename: 'csu25-data.json',
         url: 'https://primarycare.blob.core.windows.net/etl-output/csu25-data.json',
       },
-      sexualHealthInformationServices: {
+      shis: {
         filename: 'shis-data.json',
         url: 'https://primarycare.blob.core.windows.net/etl-output/shis-data.json',
       },
