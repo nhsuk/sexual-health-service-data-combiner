@@ -1,13 +1,9 @@
 const chai = require('chai');
 
 const merge = require('../../lib/utils/merge');
+const utils = require('../lib/utils');
 
 const expect = chai.expect;
-
-function expectArray(input, length) {
-  expect(input).to.be.an('array');
-  expect(input.length).to.equal(length);
-}
 
 describe('merge', () => {
   it('should return an empty array when run with an array of single empty array', () => {
@@ -15,7 +11,7 @@ describe('merge', () => {
 
     const output = merge(input);
 
-    expectArray(output, 0);
+    utils.expectArray(output, 0);
   });
 
   it('should return an empty array when run with an array of several empty arrays', () => {
@@ -23,7 +19,7 @@ describe('merge', () => {
 
     const output = merge(input);
 
-    expectArray(output, 0);
+    utils.expectArray(output, 0);
   });
 
   it('should return an array with all entries when run with a single non-empty array', () => {
@@ -32,7 +28,7 @@ describe('merge', () => {
 
     const output = merge(input);
 
-    expectArray(output, expectedLength);
+    utils.expectArray(output, expectedLength);
     expect(output).to.equal(input[0]);
   });
 
@@ -45,7 +41,7 @@ describe('merge', () => {
 
     const output = merge(input);
 
-    expectArray(output, expectedLength);
+    utils.expectArray(output, expectedLength);
     expect(output[0]).to.equal(arr1[0]);
     expect(output[1]).to.equal(arr2[0]);
   });
@@ -59,7 +55,7 @@ describe('merge', () => {
 
     const output = merge(input);
 
-    expectArray(output, expectedLength);
+    utils.expectArray(output, expectedLength);
     expect(output[0]).to.equal(arr1[0]);
     expect(output[1]).to.equal(arr2[0]);
     expect(output[2]).to.equal(arr3[0]);

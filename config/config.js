@@ -27,6 +27,10 @@ module.exports = {
         filename: 'csu25-data.json',
         url: 'https://primarycare.blob.core.windows.net/etl-output/csu25-data.json',
       },
+      pharmacy: {
+        filename: 'pharmacy-data.json',
+        url: 'https://nhsukpharmacydataetl.blob.core.windows.net/etl-output/pharmacy-data.json',
+      },
       shis: {
         filename: 'shis-data.json',
         url: 'https://primarycare.blob.core.windows.net/etl-output/shis-data.json',
