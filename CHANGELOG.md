@@ -1,3 +1,7 @@
+0.3.0 / TBD
+==================
+- Add pharmacy service data to merged data set
+
 0.2.0 / TBD
 ==================
 - Change name of generated file from `merged-data.json` to
