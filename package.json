@@ -1,6 +1,6 @@
 {
   "name": "sexual-health-service-data-combiner",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Retrieves multiple JSON files, combines them into a single file and uploads it into Azure Blob storage",
   "main": "app.js",
   "scripts": {
