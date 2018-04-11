@@ -6,18 +6,23 @@ const utils = require('../lib/utils');
 const expect = chai.expect;
 
 describe('transform', () => {
+  const line1 = 'line1';
+  const line2 = 'line2';
+  const line3 = 'line3';
+  const city = 'city';
+  const county = 'county';
+
   describe('happy path', () => {
     let output;
     const postcode = 'AB1234CD';
     const address = {
-      city: 'city',
-      county: 'county',
-      line1: 'line1',
-      line2: 'line2',
-      line3: 'line3',
+      city,
+      county,
+      line1,
+      line2,
+      line3,
       postcode,
     };
-    const expectedAddressLines = `${address.line1}, ${address.line2}, ${address.line3}, ${address.city}, ${address.county}`;
 
     before('run test', () => {
       const input = [{ address }];
@@ -46,7 +51,8 @@ describe('transform', () => {
     });
 
     it('should add new property \'addressLines\', consisting of address properties excluding postcode', () => {
-      expect(output[0].address.addressLines).to.equal(expectedAddressLines);
+      expect(output[0].address.addressLines).to.be.an('array');
+      expect(output[0].address.addressLines).to.deep.equal([line1, line2, line3, city, county]);
     });
   });
 
@@ -61,21 +67,21 @@ describe('transform', () => {
     });
 
     it('should return objects with addressLine when only one property exists', () => {
-      const input = [{ address: { line1: 'line1' } }];
+      const input = [{ address: { line1 } }];
 
       const output = transform(input);
 
       utils.expectArray(output, 1);
       expect(output[0].address).to.be.an('object');
-      expect(output[0].address.addressLines).to.be.a('string');
-      expect(output[0].address.addressLines).to.equal('line1');
+      expect(output[0].address.addressLines).to.be.a('array');
+      expect(output[0].address.addressLines).to.deep.equal([line1]);
     });
 
     it('should return objects with addressLine when several properties do not exist', () => {
       const input = [{
         address: {
-          county: 'county',
-          line1: 'line1',
+          county,
+          line1,
         },
       }];
 
@@ -83,8 +89,21 @@ describe('transform', () => {
 
       utils.expectArray(output, 1);
       expect(output[0].address).to.be.an('object');
-      expect(output[0].address.addressLines).to.be.a('string');
-      expect(output[0].address.addressLines).to.equal('line1, county');
+      expect(output[0].address.addressLines).to.be.a('array');
+      expect(output[0].address.addressLines).to.deep.equal([line1, county]);
+    });
+
+    it('should not overwrite an existing \'address.addressLines\' property', () => {
+      const addressLines = 'this already exists';
+      const input = [{
+        address: {
+          addressLines,
+        },
+      }];
+
+      const output = transform(input);
+
+      expect(output[0].address.addressLines).to.equal(addressLines);
     });
   });
 });
