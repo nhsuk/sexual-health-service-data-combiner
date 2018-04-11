@@ -10,8 +10,7 @@ describe('enrich', () => {
 
   describe('return value', () => {
     let output;
-    const serviceType = 'type of service';
-    const ids = [{ odsCode, serviceType }];
+    const ids = [{ odsCode }];
     const prop1 = 'prop1';
 
     before('run test', () => {
@@ -27,11 +26,6 @@ describe('enrich', () => {
       expect(output[0].identifier).to.equal(odsCode);
       expect(output[0].odsCode).to.equal(odsCode);
       expect(output[0].prop1).to.equal(prop1);
-      expect(output[0].serviceType).to.equal(serviceType);
-    });
-
-    it('should include a \'type\' property mapped from serviceType', () => {
-      expect(output[0].type).to.equal(serviceType);
     });
   });
 
