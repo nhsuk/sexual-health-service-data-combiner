@@ -1,6 +1,7 @@
 0.3.0 / TBD
 ==================
-- Add pharmacy service data to merged data set
+- Add pharmacy service data to merged dataset
+- Provide consistent data model across service types
 
 0.2.0 / TBD
 ==================
