@@ -5,27 +5,54 @@ const utils = require('../lib/utils');
 
 const expect = chai.expect;
 
-describe('enrich', () => {
-  const odsCode = 'ABC123';
+const odsCode = 'ABC123';
+const addressPropertyName = 'address';
+const namePropertyName = 'name';
+const nonWhitelistedPropertyName = 'nonWhitelistedProperty';
+const whitelistedProperties = [addressPropertyName, namePropertyName];
 
+function createEnrichmentSource() {
+  const enrichmentSource = { };
+  enrichmentSource.identifier = odsCode;
+  enrichmentSource[addressPropertyName] = {
+    city: 'city',
+    line1: 'line1',
+    line2: 'line2',
+    postcode: 'postcode',
+  };
+  enrichmentSource[namePropertyName] = 'name';
+  enrichmentSource[nonWhitelistedPropertyName] = 'this is not whitelisted and should not be output';
+  return enrichmentSource;
+}
+
+describe('enrich', () => {
   describe('return value', () => {
     let output;
     const ids = [{ odsCode }];
-    const prop1 = 'prop1';
+    const enrichmentSource = createEnrichmentSource();
 
     before('run test', () => {
-      const enrichmentData = [{ identifier: odsCode, prop1 }];
-      output = enrich(ids, enrichmentData);
+      const enrichmentData = [enrichmentSource];
+      output = enrich(ids, enrichmentData, whitelistedProperties);
     });
 
     it('should be an array of objects', () => {
       utils.expectArray(output, ids.length);
     });
 
-    it('should include properties from id object and enriched object', () => {
-      expect(output[0].identifier).to.equal(odsCode);
+    it('should include properties from id object', () => {
       expect(output[0].odsCode).to.equal(odsCode);
-      expect(output[0].prop1).to.equal(prop1);
+    });
+
+    it('should include whitelisted properties from enriched object', () => {
+      expect(whitelistedProperties.length).to.equal(2);
+      whitelistedProperties.forEach((prop) => {
+        expect(output[0][prop]).to.equal(enrichmentSource[prop]);
+      });
+    });
+
+    it('should not include non-whitelisted properties from enriched object', () => {
+      expect(output[0][nonWhitelistedPropertyName]).to.be.undefined;
     });
   });
 
