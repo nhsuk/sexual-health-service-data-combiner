@@ -3,6 +3,8 @@ const chai = require('chai');
 const enrich = require('../../lib/utils/enrich');
 const utils = require('../lib/utils');
 
+const enrichmentSource = require('../resources/sample-pharmacy');
+
 const expect = chai.expect;
 
 describe('enrich', () => {
@@ -11,10 +13,11 @@ describe('enrich', () => {
   describe('return value', () => {
     let output;
     const ids = [{ odsCode }];
-    const prop1 = 'prop1';
+    const nonWhiteListedPropertyName = 'nonWhiteListedProperty';
 
     before('run test', () => {
-      const enrichmentData = [{ identifier: odsCode, prop1 }];
+      enrichmentSource[nonWhiteListedPropertyName] = 'this is not whitelisted and should not be output';
+      const enrichmentData = [enrichmentSource];
       output = enrich(ids, enrichmentData);
     });
 
@@ -22,10 +25,23 @@ describe('enrich', () => {
       utils.expectArray(output, ids.length);
     });
 
-    it('should include properties from id object and enriched object', () => {
-      expect(output[0].identifier).to.equal(odsCode);
+    it('should include properties from id object', () => {
       expect(output[0].odsCode).to.equal(odsCode);
-      expect(output[0].prop1).to.equal(prop1);
+    });
+
+    it('should include whitelisted properties from enriched object', () => {
+      expect(output[0].address).to.equal(enrichmentSource.address);
+      expect(output[0].contacts).to.equal(enrichmentSource.contacts);
+      expect(output[0].identifier).to.equal(enrichmentSource.identifier);
+      expect(output[0].identifier).to.equal(odsCode);
+      expect(output[0].location).to.equal(enrichmentSource.location);
+      expect(output[0].name).to.equal(enrichmentSource.name);
+      expect(output[0].openingTimes).to.equal(enrichmentSource.openingTimes);
+      expect(output[0].summary).to.equal(enrichmentSource.summary);
+    });
+
+    it('should not include non-whitelisted properties from enriched object', () => {
+      expect(output[0][nonWhiteListedPropertyName]).to.be.undefined;
     });
   });
 

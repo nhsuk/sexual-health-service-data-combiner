@@ -2,6 +2,7 @@
 ==================
 - Add pharmacy service data to merged dataset
 - Provide consistent data model across service types
+- Only include whitelisted properties from pharmacies
 
 0.2.0 / 2018-03-29
 ==================

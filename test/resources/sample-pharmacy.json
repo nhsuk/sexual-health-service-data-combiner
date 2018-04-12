@@ -1,0 +1,107 @@
+{
+  "identifierType": "Pharmacy Contract",
+  "openingTimes": {
+    "general": {
+      "monday": [
+        {
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "tuesday": [
+        {
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "wednesday": [
+        {
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "thursday": [
+        {
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "friday": [
+        {
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "saturday": [
+        {
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "sunday": [
+        {
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ]
+    },
+    "alterations": {
+      "2012-12-25": [],
+      "2012-12-26": [],
+      "2013-01-01": []
+    }
+  },
+  "outOfHours": "",
+  "hasEps": true,
+  "address": {
+    "line1": "Tesco Pharmacy",
+    "line2": "Bridge Road",
+    "line3": null,
+    "city": "Rainham",
+    "county": "Essex",
+    "postcode": "RM13 9YZ"
+  },
+  "contacts": {
+    "website": "http://www.tesco.com/store-locator/uk/?bID=3086",
+    "additionalContacts": [],
+    "telephoneNumber": "0345 677 9570",
+    "isNonGeographicPhoneNumber": false,
+    "phoneChargeMethod": "flat-rate",
+    "phoneChargeAmount": 0,
+    "telephoneExtension": null,
+    "fax": null,
+    "email": null
+  },
+  "directionsInformation": "",
+  "externalProfileUrl": null,
+  "identifier": "ABC123",
+  "name": "Instore Pharmacy",
+  "organisationType": "Pharmacy",
+  "parkingInformation": null,
+  "provider": "London Area Team",
+  "summary": "<p>Tesco pharmacy is here to help you, so:</p><br /><p>We open late nights and at weekends</p><br /><p>We stock over 3,000 medicines, but if we don't stock what you want we'll get it in within 24 hours</p><br /><p>We help you understand your medicines</p><br /><p>We take 6 months to train our Pharmacy team to offer you great service</p><br /><p>We can collect your prescription from your surgery so you don't have to</p><br /><p>We can dispense your medicines whilst you wait OR</p><br /><p>We can dispense your medicine while you shop so it&rsquo;s ready when you are</p>",
+  "links": [
+    {
+      "rel": "NoFollow",
+      "href": "http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=%2Fexternalservices%2Forganisationapi%2Forganisations%2FFA052&amp;wt.js=no&amp;wt.cg_n=InwardAPI&amp;wt.z_SyndicationDomain={YourDomainName}",
+      "name": "Tracking pixel"
+    },
+    {
+      "rel": "Self",
+      "href": "http://www.nhs.uk/externalservices/organisationapi/organisations/FA052",
+      "name": "Link to self"
+    },
+    {
+      "rel": "Alternate",
+      "href": "http://www.nhs.uk/services/pharmacies/overview/defaultview.aspx?id=FA052",
+      "name": "NHS Choices profile"
+    }
+  ],
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      0.18956242501735687,
+      51.52053451538086
+    ]
+  }
+}
