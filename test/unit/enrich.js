@@ -3,22 +3,37 @@ const chai = require('chai');
 const enrich = require('../../lib/utils/enrich');
 const utils = require('../lib/utils');
 
-const enrichmentSource = require('../resources/sample-pharmacy');
-
 const expect = chai.expect;
 
-describe('enrich', () => {
-  const odsCode = 'ABC123';
+const odsCode = 'ABC123';
+const addressPropertyName = 'address';
+const namePropertyName = 'name';
+const nonWhitelistedPropertyName = 'nonWhitelistedProperty';
+const whitelistedProperties = [addressPropertyName, namePropertyName];
 
+function createEnrichmentSource() {
+  const enrichmentSource = { };
+  enrichmentSource.identifier = odsCode;
+  enrichmentSource[addressPropertyName] = {
+    city: 'city',
+    line1: 'line1',
+    line2: 'line2',
+    postcode: 'postcode',
+  };
+  enrichmentSource[namePropertyName] = 'name';
+  enrichmentSource[nonWhitelistedPropertyName] = 'this is not whitelisted and should not be output';
+  return enrichmentSource;
+}
+
+describe('enrich', () => {
   describe('return value', () => {
     let output;
     const ids = [{ odsCode }];
-    const nonWhiteListedPropertyName = 'nonWhiteListedProperty';
+    const enrichmentSource = createEnrichmentSource();
 
     before('run test', () => {
-      enrichmentSource[nonWhiteListedPropertyName] = 'this is not whitelisted and should not be output';
       const enrichmentData = [enrichmentSource];
-      output = enrich(ids, enrichmentData);
+      output = enrich(ids, enrichmentData, whitelistedProperties);
     });
 
     it('should be an array of objects', () => {
@@ -30,18 +45,14 @@ describe('enrich', () => {
     });
 
     it('should include whitelisted properties from enriched object', () => {
-      expect(output[0].address).to.equal(enrichmentSource.address);
-      expect(output[0].contacts).to.equal(enrichmentSource.contacts);
-      expect(output[0].identifier).to.equal(enrichmentSource.identifier);
-      expect(output[0].identifier).to.equal(odsCode);
-      expect(output[0].location).to.equal(enrichmentSource.location);
-      expect(output[0].name).to.equal(enrichmentSource.name);
-      expect(output[0].openingTimes).to.equal(enrichmentSource.openingTimes);
-      expect(output[0].summary).to.equal(enrichmentSource.summary);
+      expect(whitelistedProperties.length).to.equal(2);
+      whitelistedProperties.forEach((prop) => {
+        expect(output[0][prop]).to.equal(enrichmentSource[prop]);
+      });
     });
 
     it('should not include non-whitelisted properties from enriched object', () => {
-      expect(output[0][nonWhiteListedPropertyName]).to.be.undefined;
+      expect(output[0][nonWhitelistedPropertyName]).to.be.undefined;
     });
   });
 
