@@ -834,9 +834,9 @@ eslint-config-airbnb-base@^12.0.0:
   dependencies:
     eslint-restricted-globals "^0.1.1"
 
-eslint-config-nhsuk@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.14.0.tgz#d3199b13ea5faa61d535f17f98a7ce9bd88e20d9"
+eslint-config-nhsuk@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.15.0.tgz#bbc8ef037c13942c09c29a64499c3f1f31c3d959"
   dependencies:
     eslint "^4.0.0"
     eslint-config-airbnb-base "^12.0.0"
@@ -2085,9 +2085,9 @@ nhsuk-bunyan-logger@^1.4.0:
     bunyan "^1.0.0"
     is-nan "^1.0.0"
 
-nock@^9.0.14:
-  version "9.2.4"
-  resolved "https://registry.yarnpkg.com/nock/-/nock-9.2.4.tgz#447ec8aedc7fe0234a93f5f3b2f678b999e51781"
+nock@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/nock/-/nock-10.0.0.tgz#bcbd2c003961baffcae2ecd28e074574233d3869"
   dependencies:
     chai "^4.1.2"
     debug "^3.1.0"
