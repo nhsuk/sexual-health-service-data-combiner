@@ -834,9 +834,9 @@ eslint-config-airbnb-base@^12.0.0:
   dependencies:
     eslint-restricted-globals "^0.1.1"
 
-eslint-config-nhsuk@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.14.0.tgz#d3199b13ea5faa61d535f17f98a7ce9bd88e20d9"
+eslint-config-nhsuk@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.15.0.tgz#bbc8ef037c13942c09c29a64499c3f1f31c3d959"
   dependencies:
     eslint "^4.0.0"
     eslint-config-airbnb-base "^12.0.0"
@@ -2584,9 +2584,9 @@ request@~2.83.0:
     tunnel-agent "^0.6.0"
     uuid "^3.1.0"
 
-require-environment-variables@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/require-environment-variables/-/require-environment-variables-1.1.2.tgz#50b1b48343aa814931b0eb961aba64f0bb7795fd"
+require-environment-variables@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/require-environment-variables/-/require-environment-variables-1.2.0.tgz#535f9e9f7faba04e007b79ce77937b2cc8d47dc6"
 
 require-uncached@^1.0.3:
   version "1.0.3"
