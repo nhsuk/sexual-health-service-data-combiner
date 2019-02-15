@@ -51,7 +51,7 @@
     "nhsuk-bunyan-logger": "^1.4.0",
     "node-schedule": "^1.2.4",
     "pretty-hrtime": "^1.0.3",
-    "request-promise-native": "^1.0.5",
+    "request-promise-native": "^1.0.7",
     "require-environment-variables": "^1.1.2",
     "verror": "^1.10.0"
   }
