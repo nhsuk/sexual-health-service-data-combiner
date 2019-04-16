@@ -46,7 +46,7 @@
     "nock": "^9.0.14"
   },
   "dependencies": {
-    "azure-storage": "^2.4.0",
+    "azure-storage": "^2.10.3",
     "moment": "^2.18.1",
     "nhsuk-bunyan-logger": "^1.4.0",
     "node-schedule": "^1.2.4",
