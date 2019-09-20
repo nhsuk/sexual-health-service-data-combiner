@@ -834,9 +834,10 @@ eslint-config-airbnb-base@^12.0.0:
   dependencies:
     eslint-restricted-globals "^0.1.1"
 
-eslint-config-nhsuk@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.14.0.tgz#d3199b13ea5faa61d535f17f98a7ce9bd88e20d9"
+eslint-config-nhsuk@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.15.0.tgz#bbc8ef037c13942c09c29a64499c3f1f31c3d959"
+  integrity sha512-fJRcrZ7xI8pOZUifoBUVYbTCJ62Pt8tO9YKwLnxfBAAmZcociL9oxzwiT04Q7oCkaOJHUkbq+HdA69H4GWYEGQ==
   dependencies:
     eslint "^4.0.0"
     eslint-config-airbnb-base "^12.0.0"
@@ -2078,9 +2079,10 @@ ncp@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
-nhsuk-bunyan-logger@^1.4.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/nhsuk-bunyan-logger/-/nhsuk-bunyan-logger-1.10.0.tgz#aa3e3aeab6231604bf1a4375e831d696e34e5949"
+nhsuk-bunyan-logger@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/nhsuk-bunyan-logger/-/nhsuk-bunyan-logger-1.12.0.tgz#639f6ba5df454d85c514b5486d830b78ba18861a"
+  integrity sha512-wVAG8ltbqGBqvaw/i7A5IZaJf0d04zmWRDvaMe4lnOzsiU55bRxbaPPckpMgQHSDdIXX8LY+UE3JYRy6VGgA8w==
   dependencies:
     bunyan "^1.0.0"
     is-nan "^1.0.0"
