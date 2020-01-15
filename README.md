@@ -1,3 +1,7 @@
+# **DEPRECATED** - no longer actively maintained
+
+---
+
 # Sexual Health Service Data Combiner
 
 [![GitHub Release](https://img.shields.io/github/release/nhsuk/sexual-health-service-data-combiner.svg)](https://github.com/nhsuk/sexual-health-service-data-combiner/releases/latest/)
